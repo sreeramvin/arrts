@@ -6,19 +6,14 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            score: []
+            sco
         }
     }
-    componentDidMount() {
-        fetch('http://localhost:3000/api/droplets')
-            .then(res => res.json())
-            .then(json => json.score)
-            .then(score => this.setState({ 'score': score }))
-    }
+    
     render() {
         return (
             <div className="App">
-                <Table score={this.state.score} />
+                <Table />
             </div>
 
         );
