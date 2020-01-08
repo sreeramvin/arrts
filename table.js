@@ -17,7 +17,7 @@ class component extends Component {
     renderTableData() {
         return this.state.students.map((list, index) => {            
             return (
-                <tr key={id}>
+                <tr key={index}>
                     <td>{list.name}</td>
                     <td>{list.age}</td>                 
                 </tr>
