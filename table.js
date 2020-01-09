@@ -1,26 +1,31 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { Component } from 'react';
 
-class component extends Component {
+class Table extends Component {
     constructor(props) {
         super(props);
         this.state = {
             list: []
             };
-    }
+    }  
     componentDidMount() {
         fetch('http://5e155b3e21f9c90014c3d0b9.mockapi.io/group')
             .then(res => res.json())
-            .then(json => json.score)
-            .then(score => this.setState({ 'score': score }))
+            .then(json => {
+                this.setState({
+                    list: json
+                })
+            })
     }
     renderTableData() {
-        return this.state.students.map((list, index) => {            
+         return this.state.list.map((lis,index) => {            
             return (
-                <tr key={index}>
-                    <td>{list.name}</td>
-                    <td>{list.age}</td>                 
-                </tr>
+                <div>
+                    <tr key={index}>
+                        <td style={{ align:'right' ,padding:'10px'}}>{lis.name}</td>
+                    <td>{lis.score}</td>                 
+                    </tr>
+                </div>
             )
         })
     }
@@ -44,7 +49,7 @@ class component extends Component {
    }
 
 
-export default component;
+export default Table;
 
 
 
